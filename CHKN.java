@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class CHKN {
 //Jump to line 159.
     private static Blocks[][] grid = new Blocks[8][8];
@@ -62,7 +61,7 @@ public class CHKN {
         {
             String symbol = ".";
 
-            switch (animal.toLowerCase()) 
+            switch (animal.toLowerCase())
             {
                 case "chicken": symbol = "c"; break;
                 case "snake": symbol = "s"; break;
@@ -140,96 +139,5 @@ public class CHKN {
             }
             System.out.println();
         }
-    }
-
-    public static void main(String[] args) 
-    {   //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //Edit Script here for custom creature manually:
-        //My wonderful "ui". Yay.
-        //_____________________________________________________________________________________
-        insert(new Blocks("Chicken", 0, BlockType.BODY, 4, 5));
-        insert(new Blocks("Chicken", 0, BlockType.BODY, 5, 5));
-        insert(new Blocks("Chicken", 1, BlockType.BODY, 3, 5));
-        insert(new Blocks("Chicken", 0, BlockType.MOUTH, 3, 4));
-        insert(new Blocks("Chicken", 1, BlockType.BODY, 6, 5));
-        insert(new Blocks("Chicken", 1, BlockType.TAIL, 6, 6));
-        //____________________________________________________________________________________
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        System.out.println("\nAdd a new block? (y/n): ");
-
-
-        Scanner scanner = new Scanner(System.in);
-        String response = scanner.nextLine();
-
-        String animal;
-        String typeStr;
-        int x; // [0, 7]
-        int y; //[0, 7]
-        
-        while (response.equalsIgnoreCase("y")) //collect info and stuff.
-        {
-            System.out.print("Animal: ");
-            animal = scanner.nextLine();
-            System.out.print("Size (int): ");
-            int size = Integer.parseInt(scanner.nextLine());
-            System.out.print("BlockType (MOUTH, BODY, TAIL, LEG, ARM, EYE, EAR, WING, MISC, CUSTOM): ");
-            typeStr = scanner.nextLine();
-            BlockType type = BlockType.valueOf(typeStr.toUpperCase());
-            System.out.print("X (0-7): ");
-            x = Integer.parseInt(scanner.nextLine());
-            System.out.print("Y (0-7): ");
-            y = Integer.parseInt(scanner.nextLine());
-
-            insert(new Blocks(animal, size, type, x, y)); //applies info
-            display(); //updates chart
-
-            System.out.println("\nAdd another block? (y/n): "); //retry query
-            response = scanner.nextLine();
-        }
-        System.out.print("Animal: "); //resume query
-        animal = scanner.nextLine();
-        System.out.print("Size (int): ");
-        int size = Integer.parseInt(scanner.nextLine());
-        System.out.print("BlockType (MOUTH, BODY, TAIL, LEG, ARM, EYE, EAR, WING, MISC, CUSTOM): ");
-         typeStr = scanner.nextLine();
-        BlockType type = BlockType.valueOf(typeStr.toUpperCase());
-        System.out.print("X (0-7): ");
-        x = Integer.parseInt(scanner.nextLine());
-        System.out.print("Y (0-7): ");
-        y = Integer.parseInt(scanner.nextLine());
-
-        insert(new Blocks(animal, size, type, x, y)); //applies info. Again.
-        display(); //updates chart. Again.
-
-        System.out.println("\n" + "Add another block? (y/n): "); //retry.
-        response = scanner.nextLine();
-        display();
-
-        
-        scanner.close(); //Just in case. I'm scared of scanner.
-         System.out.println("\n" +  "You can create your own blocks like:");
-        System.out.println("Blocks b = new Blocks(\"Animal\", size, BlockType.TYPE, x, y);");
-        System.out.println("Then use funcs. : setAnimal(), setSize(), setType(), setCoordinates()");
     }
 }
